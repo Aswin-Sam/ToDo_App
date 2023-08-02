@@ -81,3 +81,12 @@
 #flag{
     padding-left: 10px;
 }
+
+.added-tasks{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    background-color: aquamarine;
+}
