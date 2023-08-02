@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="block">
+        <h1>ADD TASK</h1>
+        <input type="text" name="task" id="task" placeholder="Enter the Task" required/>
+        <div class="innerBlock">
+          <input type="date" name="date" id="date" required/>
+          <button id="priority" onclick="priority()">
+            <img src="white.png" alt="priority" height="16px" id="flag"/>Priority
+          </button>
+        </div>
+        <button id="add">ADD</button>
+      </div>
+    </div>
+  </body>
+</html>
