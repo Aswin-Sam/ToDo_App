@@ -5,22 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo App</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div class="container">
       <div class="block">
         <h1>ADD TASK</h1>
-        <input type="text" name="task" id="task" placeholder="Enter the Task" required/>
+        <input
+          type="text"
+          name="task"
+          id="task"
+          placeholder="Enter the Task"
+          required
+        />
         <div class="innerBlock">
-          <input type="date" name="date" id="date" required/>
-          <button id="priority" onclick="priority()">
-            <img src="white.png" alt="priority" height="16px" id="flag"/>Priority
+          <input
+            type="date"
+            name="date"
+            id="date"
+            title="Enter the due date"
+            required
+          />
+          <button id="priority" onclick="priority()" title="priority">
+            <img
+              src="white.png"
+              alt="priority"
+              height="16px"
+              id="flag"
+            />Priority
           </button>
         </div>
-        <button id="add" onclick="add()">ADD</button>
-        <div class="added-tasks">
-          <h1>TASKS</h1>
-        </div>
+        <button id="add" onclick="add()" title="Add the task">ADD</button>
+        <div class="added-tasks"></div>
       </div>
     </div>
     <script src="script.js"></script>
