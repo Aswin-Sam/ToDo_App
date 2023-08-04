@@ -8,17 +8,17 @@ let isPriority = false;
 const DATE = new Date();
 display();
 function display() {
-  if (localStorage.length > 0) {
+  if (localStorage.length > 0) {  
     addedTasks.style = "display:flex";
     let totalItems = localStorage.length;
     let items = "";
     for (i = 0; i < totalItems; i++) {
-      let item = JSON.parse(localStorage.getItem(i));
-      if (item.priority) {
+      let item = JSON.parse(localStorage.getItem(localStorage.key(i)));
+       if (item.priority) {
         items += `<div class="all-tasks" style="border-bottom: 5px solid #800000;">
         <h3 class="date-space">${item.date}</h3>
         <h3>${item.task}</h3>
-        <button class="remove" id="${i}" onclick="remove(this.id)" title="Delete">
+        <button class="remove" id="${localStorage.key(i)}" onclick="remove(this.id)" title="Delete">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>`;
@@ -26,13 +26,16 @@ function display() {
         items += `<div class="all-tasks">
         <h3 class="date-space">${item.date}</h3>
         <h3>${item.task}</h3>
-        <button class="remove" id="${i}" onclick="remove(this.id)" title="Delete">
+        <button class="remove" id="${localStorage.key(i)}" onclick="remove(this.id)" title="Delete">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>`;
       }
     }
     addedTasks.innerHTML = `<h1>TASKS</h1>` + items;
+  }
+  else{
+    addedTasks.style = "display:none";
   }
 }
 
@@ -91,10 +94,19 @@ function add() {
     let item = {
       "task":task.value,
       "date":inputDate.value,
-      "priority": priority()
+      "priority": isPriority
     };
     let stringFormat = JSON.stringify(item);
-    localStorage.setItem(localStorage.length,stringFormat);
+    localStorage.setItem(Math.random()*1000000,stringFormat);
     display();
+    task.value = "";
+    inputDate.value = "";
+    isPriority = true;
+    priority();
   }
+}
+
+function remove(id){
+  localStorage.removeItem(id);
+  display();
 }
